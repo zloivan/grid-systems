@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 430927771659254837}
-  - component: {fileID: 5432128836327655093}
+  - component: {fileID: 4786431026215258578}
   m_Layer: 0
   m_Name: GridVisualSquareSingle
   m_TagString: Untagged
@@ -116,7 +116,7 @@ Transform:
   - {fileID: 7814689986612361974}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5432128836327655093
+--- !u!114 &4786431026215258578
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4629524343000429118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cde5e2e2f6540018d4e53f35bc151c1, type: 3}
+  m_Script: {fileID: 11500000, guid: 2646fdc13b6084efdadf731ab9a949db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _emissionIntensity: 2

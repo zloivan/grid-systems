@@ -256,13 +256,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 369044535}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c739506bc464cbb92d99e89d631948c, type: 3}
+  m_Script: {fileID: 11500000, guid: f52a969da73dd489ca3cbb81bb9fc430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gridType: 1
+  _gridType: 0
   _width: 6
   _height: 8
-  _gridDebug: {fileID: 2599551500137322411, guid: 15876793db68c4057a0771e0413973b1, type: 3}
+  _gridDebug: {fileID: 2599551500137322411, guid: 67abfaa3037cb46dcbaa462162281a51, type: 3}
   _enableDebug: 1
 --- !u!114 &369044539
 MonoBehaviour:
@@ -273,18 +273,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 369044535}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61e01054099345a88f11daf1fcf1f72a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4467bc198041f484c9bcf8dd6c43276e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _idleColor: 0
-  _visualPrefab: {fileID: 4629524343000429118, guid: 9adfcc99a4471492c81e2972ebbf7237, type: 3}
+  _visualPrefab: {fileID: 4629524343000429118, guid: b5864c35674294949869263ad5e81400, type: 3}
   _gridVisualTypeMaterialsList:
   - GridVisualType: 0
-    Material: {fileID: 2100000, guid: 0a69cb5bb35fc4ea28ab67e8d1dc7e59, type: 2}
+    Material: {fileID: 2100000, guid: 2d23fb5d4e52a4ad984cebec757f81c5, type: 2}
   - GridVisualType: 1
-    Material: {fileID: 2100000, guid: 66f5d079cd34c496f90dc4f57c4eb697, type: 2}
+    Material: {fileID: 2100000, guid: d20fa66eaefc146f9bd6b40ce2412018, type: 2}
   - GridVisualType: 2
-    Material: {fileID: 2100000, guid: 6709f1ff3eab7441a8f9e8e11a7278ee, type: 2}
+    Material: {fileID: 2100000, guid: 1d83abafd21df47e7b931e6d522deb45, type: 2}
 --- !u!1 &485357517
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +294,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 485357519}
-  - component: {fileID: 485357518}
+  - component: {fileID: 485357520}
   m_Layer: 0
   m_Name: PointtToWorld
   m_TagString: Untagged
@@ -302,22 +302,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &485357518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485357517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7f0f115946a44d99ec5cc9e95ec2cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _availableLayers:
-    serializedVersion: 2
-    m_Bits: 64
-  _camera: {fileID: 217501614}
 --- !u!4 &485357519
 Transform:
   m_ObjectHideFlags: 0
@@ -333,6 +317,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &485357520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485357517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc24b05696e7544e6b47116e8084f64e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _availableLayers:
+    serializedVersion: 2
+    m_Bits: 1
+  _camera: {fileID: 217501614}
 --- !u!1 &1406498800
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,7 +439,7 @@ GameObject:
   - component: {fileID: 1731830394}
   - component: {fileID: 1731830393}
   - component: {fileID: 1731830392}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
