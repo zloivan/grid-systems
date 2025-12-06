@@ -1,9 +1,10 @@
 using System;
-using IKhom.grid_systems.Runtime.components;
+using IKhom.GridSystems.Runtime.components;
+using IKhom.GridSystems.Runtime.core;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace IKhom.grid_systems.Runtime.core
+namespace IKhom.GridSystems.Runtime
 {
     public class GridSystem<T>
     {

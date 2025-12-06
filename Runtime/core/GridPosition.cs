@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace IKhom.grid_systems.Runtime.core
+namespace IKhom.GridSystems.Runtime.core
 {
     public readonly struct GridPosition : IEquatable<GridPosition>
     {
