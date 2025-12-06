@@ -1,11 +1,10 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace IKhom.GridSystems.Runtime.components
 {
     public class GridDebugObject : MonoBehaviour
     {
-        [SerializeField] private Text _debugLabel;
+        [SerializeField] private TextMesh _debugLabel;
         
         private object _gridObject;
 

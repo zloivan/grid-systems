@@ -20,5 +20,11 @@
     "url": "https://github.com/zloivan/grid-systems.git",
     "type": "git",
     "revision": "c9b3040145e2f259b892825556f322504018c6f3"
-  }
+  },
+  "samples": [
+    {
+      "displayName": "Grid Demo",
+      "description": "Contains components prefabs and materials with a demo Scene",
+      "path": "Samples~/GridSystemExample"
+    }]
 }

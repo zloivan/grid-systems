@@ -1,48 +1,32 @@
 using System;
 using System.Collections.Generic;
-using IKhom.GridSystems.Runtime.components;
 using IKhom.GridSystems.Runtime.core;
 using UnityEngine;
 
-namespace HexSort.Grid
+namespace IKhom.GridSystems.Runtime
 {
-    public class GridSystemHex<TGridObject>
+    public class GridSystemHex<TGridObject> : GridSystemBase<TGridObject>
     {
         const float HEX_SLOT_HEIGHT_OFFSET_MULTIPLIER = 0.75f;
-        private readonly int _width;
-        private readonly int _height;
-        private readonly float _slotSize;
-        private readonly TGridObject[,] _gridObjectArray;
 
-        public GridSystemHex(int width, int height, float slotSize,
-            Func<GridSystemHex<TGridObject>, GridPosition, TGridObject> gridObjectBuilder)
+        public GridSystemHex(int width, int height,
+            Func<GridSystemBase<TGridObject>, GridPosition, TGridObject> gridObjectBuilder, float slotSize = 1f)
+            : base(width, height, slotSize)
         {
-            _gridObjectArray = new TGridObject[width, height];
-            _slotSize = slotSize;
-            _width = width;
-            _height = height;
-
-
-            for (var x = 0; x < _width; x++)
+            for (var x = 0; x < GetWidth(); x++)
             {
-                for (var z = 0; z < _height; z++)
+                for (var z = 0; z < GetHeight(); z++)
                 {
                     var gridPosition = new GridPosition(x, z);
-                    _gridObjectArray[x, z] = gridObjectBuilder(this, gridPosition);
+                    _gridObjects[x, z] = gridObjectBuilder(this, gridPosition);
                 }
             }
         }
 
-        public int GetHeight() =>
-            _height;
-
-        public int GetWidth() =>
-            _width;
-
-        public GridPosition GetGridPosition(Vector3 worldPosition)
+        public override GridPosition GetGridPosition(Vector3 worldPosition)
         {
-            var approxGridPos = new GridPosition(Mathf.RoundToInt(worldPosition.x / _slotSize),
-                Mathf.RoundToInt(worldPosition.z / _slotSize / HEX_SLOT_HEIGHT_OFFSET_MULTIPLIER));
+            var approxGridPos = new GridPosition(Mathf.RoundToInt(worldPosition.x / GetCellSize()),
+                Mathf.RoundToInt(worldPosition.z / GetCellSize() / HEX_SLOT_HEIGHT_OFFSET_MULTIPLIER));
 
             var neighbors = GetNeighbors(approxGridPos);
 
@@ -75,19 +59,16 @@ namespace HexSort.Grid
             return newGridPosition;
         }
 
-        public Vector3 GetWorldPosition(GridPosition gridPosition) =>
-            new Vector3(gridPosition.X, 0, 0) * _slotSize +
-            _slotSize * HEX_SLOT_HEIGHT_OFFSET_MULTIPLIER * new Vector3(0, 0, gridPosition.Z)
-            + (gridPosition.Z % 2 == 1 ? _slotSize * 0.5f * new Vector3(1, 0, 0) : Vector3.zero);
+        public override Vector3 GetWorldPosition(GridPosition gridPosition) =>
+            new Vector3(gridPosition.X, 0, 0) * GetCellSize() +
+            GetCellSize() * HEX_SLOT_HEIGHT_OFFSET_MULTIPLIER * new Vector3(0, 0, gridPosition.Z)
+            + (gridPosition.Z % 2 == 1 ? GetCellSize() * 0.5f * new Vector3(1, 0, 0) : Vector3.zero);
 
-        public TGridObject GetGridObject(GridPosition gridPos) =>
-            _gridObjectArray[gridPos.X, gridPos.Z];
-
-        public bool IsValidGridPosition(GridPosition gridPosition) =>
+        public override bool IsValidGridPosition(GridPosition gridPosition) =>
             gridPosition is { X: >= 0, Z: >= 0 } &&
-            gridPosition.X < _width && gridPosition.Z < _height;
+            gridPosition.X < GetWidth() && gridPosition.Z < GetHeight();
 
-        public List<GridPosition> GetNeighbors(GridPosition pos)
+        public override List<GridPosition> GetNeighbors(GridPosition pos)
         {
             var isAddRow = pos.Z % 2 == 1;
 
@@ -100,23 +81,6 @@ namespace HexSort.Grid
                 pos + new GridPosition(isAddRow ? +1 : -1, +1), //top-right
                 pos + new GridPosition(isAddRow ? +1 : -1, -1), //bot-right
             };
-        }
-
-        public void CreateDebugObjects(Transform prefab, Transform parent)
-        {
-            for (var x = 0; x < _width; x++)
-            {
-                for (var z = 0; z < _height; z++)
-                {
-                    var gridPosition = new GridPosition(x, z);
-
-                    var debugObj = UnityEngine.Object.Instantiate(prefab, GetWorldPosition(gridPosition),
-                        Quaternion.identity,
-                        parent);
-
-                    debugObj.GetComponent<GridDebugObject>().SetGridObject(GetGridObject(gridPosition));
-                }
-            }
         }
     }
 }
