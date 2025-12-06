@@ -1,0 +1,24 @@
+{
+  "name": "com.zloivan.gridsystems",
+  "displayName": "IKhom Grid Systems",
+  "description": "Simple yet functional hex and square grid systems",
+  "version": "1.0.0",
+  "keywords": [
+    "components",
+    "unity"
+  ],
+  "category": "unity utilities",
+  "_upm": {
+    "changelog": "- Initial Version"
+  },
+  "author": {
+    "name": "Ivan Khomichkov",
+    "url": "https://github.com/zloivan"
+  },
+  "documentationUrl": "https://github.com/zloivan/grid-systems/blob/master/README.md",
+  "repository": {
+    "url": "https://github.com/zloivan/grid-systems.git",
+    "type": "git",
+    "revision": "c9b3040145e2f259b892825556f322504018c6f3"
+  }
+}
